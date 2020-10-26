@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="ja">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,7 +74,13 @@
 
         <main class="py-4">
             @yield('content')
-            <tasklist-component></tasklist-component>
+            <b-card-group deck>
+                <tasklist-component></tasklist-component>
+                <tasklist-component></tasklist-component>
+                <tasklist-component></tasklist-component>
+                <tasklist-component></tasklist-component>
+                <tasklist-component></tasklist-component>
+            </b-card-group>
         </main>
     </div>
 </body>
