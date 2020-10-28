@@ -32,6 +32,8 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('tasklist-component', require('./components/TasklistComponent.vue').default);
+
+Vue.component('taskboard-component', require('./components/TaskBoardComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

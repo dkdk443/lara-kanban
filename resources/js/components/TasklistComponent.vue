@@ -1,7 +1,7 @@
 <template>
-  <b-card>
+  <div class="taskCard">
     <div class="task-header">
-      <h4 class="task-name">taskkkkkkkkkxxxxxxxxxxxxxxxk</h4>
+      <h4 class="task-name">{{list.id}}:{{list.title}}</h4>
       <b-icon 
         icon="three-dots" 
         class="header-icon"
@@ -75,7 +75,7 @@
           @click="saveTask()"
          >カードを追加</b-button>
       </div>
-  </b-card>
+  </div>
 </template>
 
 <script>
@@ -106,6 +106,7 @@ export default {
       ]
     }
   },
+  props:['list'],
   methods: {
     showEditTaskButton(index) {
       this.hoverIndex = index;
@@ -142,7 +143,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+.taskCard {
+  width: 240px;
+  margin: 0 20px;
+  padding: 10px;
+  background-color: rgb(238, 238, 238);
+  border-radius: 4px;
+}
 .task-header {
   display: flex;
   flex-wrap: wrap;
@@ -153,6 +160,7 @@ export default {
   margin-bottom: 8px;
   flex: 1;
   max-width: 80%;
+  overflow: scroll;
   }
   .header-icon {
     width: 24px;
@@ -166,12 +174,27 @@ export default {
     top: 20px;
     right: -180px;
     z-index: 10;
+    font-size: 14px;
+    
     box-shadow: 0px 8px 16px -2px rgba(10,10,10,0.1), 0px 0px 0px 1px rgba(10,10,10,0.02);
     h5 {
       font-size: 16px;
       text-align: center;
     }
+    ul {
+      list-style: none;
+      padding: 0px;
+      li:hover {
+         background-color: rgb(236, 236, 236);
+      }
+    }
+    
+     &__section {
+    
+
   }
+  }
+ 
 }
 
 .task-form {
@@ -186,6 +209,7 @@ export default {
   padding: 10px;
   border-radius: 3px;
   margin-bottom: 12px;
+  background-color: white;
   cursor: pointer;
   &-hover {
     &:hover {

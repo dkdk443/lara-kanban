@@ -74,13 +74,7 @@
 
         <main class="py-4">
             @yield('content')
-            <b-card-group deck>
-                <tasklist-component></tasklist-component>
-                <tasklist-component></tasklist-component>
-                <tasklist-component></tasklist-component>
-                <tasklist-component></tasklist-component>
-                <tasklist-component></tasklist-component>
-            </b-card-group>
+            <taskboard-component></taskboard-component>
         </main>
     </div>
 </body>
