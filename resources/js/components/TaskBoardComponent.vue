@@ -40,6 +40,10 @@ export default {
         {
           id:6,
           title: 'リストのタイトル6'
+        },
+         {
+          id:7,
+          title: 'リストのタイトル7'
         }
       ]
     }
@@ -49,8 +53,11 @@ export default {
 
 <style lang="scss" scoped>
 .taskBoard {
-  display: flex;
- 
+  display: inline-flex;
+  overflow-x: scroll;
+  margin-top: 100px;
+  
+
 
 
 }

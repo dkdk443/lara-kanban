@@ -10903,12 +10903,3 @@ a.text-dark:focus {
   }
 }
 
-#app {
-  position: relative;
-}
-
-.navbar {
-  position: absolute;
-  top: 0;
-}
-

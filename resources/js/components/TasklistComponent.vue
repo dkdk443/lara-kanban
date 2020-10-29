@@ -139,6 +139,9 @@ export default {
     editTaskCard(task_id){
       alert(`card_id:${task_id}のカードを編集`);
     }
+  },
+  computed: {
+    
   }
 }
 </script>
