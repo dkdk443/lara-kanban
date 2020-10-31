@@ -34,34 +34,34 @@ export default {
       title:'',
       creatingTitle: true,
       list:[
-        {
-          id:1,
-          title: 'リストのタイトル'
-        },
-        {
-          id:2,
-          title: 'リストのタイトル2'
-        },
-        {
-          id:3,
-          title: 'リストのタイトル3'
-        },
-        {
-          id:4,
-          title: 'リストのタイトル4'
-        },
-        {
-          id:5,
-          title: 'リストのタイトル5'
-        },
-        {
-          id:6,
-          title: 'リストのタイトル6'
-        },
-         {
-          id:7,
-          title: 'リストのタイトル7'
-        }
+        // {
+        //   id:1,
+        //   title: 'リストのタイトル'
+        // },
+        // {
+        //   id:2,
+        //   title: 'リストのタイトル2'
+        // },
+        // {
+        //   id:3,
+        //   title: 'リストのタイトル3'
+        // },
+        // {
+        //   id:4,
+        //   title: 'リストのタイトル4'
+        // },
+        // {
+        //   id:5,
+        //   title: 'リストのタイトル5'
+        // },
+        // {
+        //   id:6,
+        //   title: 'リストのタイトル6'
+        // },
+        //  {
+        //   id:7,
+        //   title: 'リストのタイトル7'
+        // }
       ]
     }
   },
@@ -96,12 +96,14 @@ export default {
   background-size: cover;
   background-attachment: fixed;
   height: 100vh;
+  width: 100vw;
 }
 
 .placeholder {
   background-color: white;
   height: fit-content;
-  width: 240px;
+  max-width: 240px;
+  min-width: 240px;
   margin: 0 20px;
   padding: 10px;
   background-color: rgb(238, 238, 238);

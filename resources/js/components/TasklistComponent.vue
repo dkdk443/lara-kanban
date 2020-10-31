@@ -159,7 +159,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .taskCard {
-  width: 240px;
+  max-width: 240px;
+  min-width: 240px;
   margin: 0 20px;
   padding: 10px;
   background-color: rgb(238, 238, 238);
