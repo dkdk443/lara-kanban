@@ -7,3 +7,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+#app {
+  background-image: url('https://cdn.pixabay.com/photo/2016/07/01/23/16/amusement-park-1492099_1280.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  position: relative;
+}

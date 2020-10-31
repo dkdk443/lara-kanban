@@ -49,26 +49,28 @@
       :key="task.id"
       @mouseover="showEditTaskButton(index)"
       @mouseleave="hideEditTaskButton(index)"
-      @click.stop="showTaskDetail(task.id)"
+      @click.stop="displayModal(task.id)"
       >
-      <div 
+      <div
         class="icon"
         v-if="isHovering && index === hoverIndex"
         @click.stop="editTaskCard(task.id)"
       >edit</div>
         <div class="task-card__body">
-          <p>{{task.content}}</p>
+          id:{{ task.id}}
+          <p>{{task.content}}</p>list_id:{{task.list_id}}
         </div>
       </div>
       <div class="task-card" v-if="isCreatingTask">
-      <b-form-textarea
+      <b-textarea
         class="task-form"
         id="textarea"
-        v-model="content"
+        v-model="title"
         placeholder="ここにカードのタイトルを入力"
         rows="3"
         max-rows="6"
-      ></b-form-textarea>
+        required
+      ></b-textarea>
     </div>
     </div>
     <div class="task-footer">
@@ -96,7 +98,8 @@ export default {
       hoverIndex: null,
       isCreatingTask: false,
       isShowingTaskOption: false,
-      content: '',
+      isDisplayedPopup: true,
+      title: '',
       tasks: [
         // {
         //   id: 1,
@@ -126,8 +129,11 @@ export default {
       this.hoverIndex = index;
       this.isHovering = false;
     },
-    showTaskDetail(task_id) {
-      alert(`card_id:${task_id}のカードの詳細`)
+    displayModal(task_id) {
+      this.$store.state.task.id = task_id,
+      this.$store.state.task.title = this.title,
+      this.$store.state.task.list_id = this.list.id,
+      this.$store.state.isDisplayedModal = true;
     },
     showListOption() {
       this.isShowingTaskOption = !this.isShowingTaskOption;
@@ -138,12 +144,12 @@ export default {
     saveTask() {
       this.tasks.push(
          {
-          id:4,
-          content:'タスクを追加だよ！タスク',
-          list_id: 2
+          id: 1,
+          title: this.title,
+          list_id: this.list.id
         }
       );
-      this.content = "";
+      this.title = "";
       this.isCreatingTask = false;
     },
     editTaskCard(task_id){
@@ -157,7 +163,7 @@ export default {
       } else {
         return 'さらにカードを追加'
       }
-    }
+    },
   },
   mounted() {
   },

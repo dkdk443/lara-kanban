@@ -36,7 +36,7 @@ export default {
       list:[
         // {
         //   id:1,
-        //   title: 'リストのタイトル'
+        //   title: ''
         // },
         // {
         //   id:2,
@@ -77,11 +77,20 @@ export default {
 
       this.list.push(
         {
-          id:8,
+          id: this.getLastId + 1,
           title: this.title
         })
       this.title = '';
 
+    }
+  },
+  computed: {
+    getLastId(){
+      if (this.list.length === 0) {
+        return 0
+      } else {
+         return this.list.slice(-1)[0].id;
+      }
     }
   }
 }
@@ -89,13 +98,11 @@ export default {
 
 <style lang="scss" scoped>
 .taskBoard {
+  position: relative;
   display: inline-flex;
   overflow-x: scroll;
   padding-top: 100px;
-  background-image: url('https://cdn.pixabay.com/photo/2016/07/01/23/16/amusement-park-1492099_1280.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  height: 100vh;
+  height: calc(100vh - 80px);
   width: 100vw;
 }
 

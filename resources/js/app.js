@@ -9,6 +9,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import Vuex from 'vuex'
+import 'es6-promise/auto'
 
 /**
  * The following block of code may be used to automatically register your
@@ -26,8 +28,13 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
+Vue.use(Vuex)
+
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.component('app-component', require('./appComponent').default);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
@@ -36,12 +43,30 @@ Vue.component('tasklist-component', require('./components/TasklistComponent.vue'
 Vue.component('taskboard-component', require('./components/TaskBoardComponent.vue').default);
 
 Vue.component('header-component', require('./components/HeaderComponent.vue').default);
+
+Vue.component('task-detail-component', require('./components/TaskDetailComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+const store = new Vuex.Store({
+    state: {
+        task: {
+            id: null,
+            title:'',
+            content: '',
+            list_id: null,
+        },
+        isDisplayedModal: true
+    },
+    mutations: {
+
+    }
+})
+
 const app = new Vue({
     el: '#app',
+    store
 });

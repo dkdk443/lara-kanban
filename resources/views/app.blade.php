@@ -21,13 +21,7 @@
 </head>
 <body>
     <div id="app">
-      <header-component></header-component>
-
-        <main class="py-4">
-            @yield('content')
-            <taskboard-component></taskboard-component>
-
-        </main>
+     <app-component></app-component>
     </div>
 </body>
 </html>
