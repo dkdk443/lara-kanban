@@ -1,5 +1,16 @@
 <template>
-  <div class="taskCard">
+  <!-- <span class="placeholder"
+    v-if="isCreatingCardTitle"
+  >
+    <b-form-input
+      placeholder="リストのタイトルを入力"
+    ></b-form-input>
+     <b-button variant="success"
+      @click="isCreatingCardTitle = false"
+     >Button</b-button>
+  </span> -->
+  <div 
+    class="taskCard">
     <div class="task-header">
       <h4 class="task-name">{{list.id}}:{{list.title}}</h4>
       <b-icon 
@@ -25,17 +36,15 @@
             </ul>
           </div>
           <div class="task-option__section">
-            
           </div>
           <div class="task-option__section">
-            
           </div>
-          
         </div>
     </div>
     </div>
-
-    <div class="task-card task-card-hover"
+    <div class="task-content"
+      >
+      <div class="task-card task-card-hover"
       v-for="(task, index) in tasks"
       :key="task.id"
       @mouseover="showEditTaskButton(index)"
@@ -51,7 +60,7 @@
           <p>{{task.content}}</p>
         </div>
       </div>
-    <div class="task-card" v-if="isCreatingTask">
+      <div class="task-card" v-if="isCreatingTask">
       <b-form-textarea
         class="task-form"
         id="textarea"
@@ -61,7 +70,8 @@
         max-rows="6"
       ></b-form-textarea>
     </div>
-      <div class="task-footer">
+    </div>
+    <div class="task-footer">
         <div class="task-footer__button"
           @click="addTask()"
           v-if="!isCreatingTask"
@@ -142,7 +152,9 @@ export default {
   },
   computed: {
     
-  }
+  },
+  mounted() {
+  },
 }
 </script>
 <style lang="scss" scoped>
@@ -152,6 +164,7 @@ export default {
   padding: 10px;
   background-color: rgb(238, 238, 238);
   border-radius: 4px;
+  height: fit-content;
 }
 .task-header {
   display: flex;
@@ -239,4 +252,5 @@ export default {
   }
   font-size: 14px;
 }
+
 </style>

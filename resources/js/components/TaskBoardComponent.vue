@@ -1,10 +1,25 @@
 <template>
-    <div class="taskBoard">
-      <tasklist-component 
-        v-for="item in list" 
-        :key="item.id" 
+  <div class="taskBoard">
+    <tasklist-component
+        v-for="item in list"
+        :key="item.id"
         :list="item"
       ></tasklist-component>
+    <span class="placeholder">
+    <template>    
+      <div v-if="creatingTitle">
+      <b-form-input
+        placeholder="リストのタイトルを入力"
+        v-model="title"
+        v-if="creatingTitle"
+      ></b-form-input>
+     <b-button variant="success"
+      @click="addList()"
+     >Button</b-button>
+      </div>
+    </template>
+
+  </span>
     </div>
 </template>
 
@@ -16,6 +31,8 @@ export default {
   },
   data(){
     return {
+      title:'',
+      creatingTitle: true,
       list:[
         {
           id:1,
@@ -47,6 +64,25 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    creatingList() {
+      this.list.push(
+        {
+          id:8,
+          title: ''
+        })
+    },
+    addList() {
+
+      this.list.push(
+        {
+          id:8,
+          title: this.title
+        })
+      this.title = '';
+
+    }
   }
 }
 </script>
@@ -55,10 +91,21 @@ export default {
 .taskBoard {
   display: inline-flex;
   overflow-x: scroll;
-  margin-top: 100px;
-  
-
-
-
+  padding-top: 100px;
+  background-image: url('https://cdn.pixabay.com/photo/2016/07/01/23/16/amusement-park-1492099_1280.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
 }
+
+.placeholder {
+  background-color: white;
+  height: fit-content;
+  width: 240px;
+  margin: 0 20px;
+  padding: 10px;
+  background-color: rgb(238, 238, 238);
+  border-radius: 4px;
+}
+
 </style>
