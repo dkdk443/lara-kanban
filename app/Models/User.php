@@ -11,6 +11,9 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function tasklists() {
+        return $this->hasMany('App\TaskList');
+    }
     /**
      * The attributes that are mass assignable.
      *
