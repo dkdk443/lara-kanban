@@ -77,7 +77,7 @@
           v-if="!isCreatingTask"
         >
           <b-icon icon="plus" scale="2" class="plus-icon"></b-icon>
-          さらにカードを追加
+          {{ addingCardMessage }}
         </div>
          <b-button variant="success"
           size="sm"
@@ -98,21 +98,21 @@ export default {
       isShowingTaskOption: false,
       content: '',
       tasks: [
-        {
-          id: 1,
-          content:'概算見積もりを出す',
-          list_id: 1
-        },
-        {
-          id:2,
-          content:'概算見積もりを出す概算見積もりを出す概算見積もりを出す概算見積もりを出す概算見積もりを出す概算見積もりを出す概算見積もりを出す',
-          list_id: 1
-        },
-        {
-          id:3,
-          content:'概算見積もりを出す概算見積もりを出す概算見積もりを出す概算見積もりを出す概算見積もりを出す',
-          list_id: 2
-        }
+        // {
+        //   id: 1,
+        //   content:'概算見積もりを出す',
+        //   list_id: 1
+        // },
+        // {
+        //   id:2,
+        //   content:'概算見積もりを出す概算見積もりを出す概算見積もりを出す概算見積もりを出す概算見積もりを出す概算見積もりを出す概算見積もりを出す',
+        //   list_id: 1
+        // },
+        // {
+        //   id:3,
+        //   content:'概算見積もりを出す概算見積もりを出す概算見積もりを出す概算見積もりを出す概算見積もりを出す',
+        //   list_id: 2
+        // }
       ]
     }
   },
@@ -151,7 +151,13 @@ export default {
     }
   },
   computed: {
-    
+    addingCardMessage() {
+      if (this.tasks.length === 0){
+        return 'カードを新しく追加'
+      } else {
+        return 'さらにカードを追加'
+      }
+    }
   },
   mounted() {
   },
